@@ -18,8 +18,8 @@ body {
 	margin: auto;
 	height: 100%;
 	width: 80%;
-	max-width: 600px;
-	max-height: 500px;
+	max-width: 900px;
+	max-height: 750px;
 	background-color: salmon;
 }
 
@@ -76,6 +76,7 @@ img{
 .slider-text{
     position: absolute;
     bottom: 0;
+	width: 100%;
     color: white;
     background-color: rgba(0, 0, 0, 0.384);
 }

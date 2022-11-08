@@ -34,11 +34,6 @@ Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.*/
 
 
 
-
-
-//vecchio
-
-
 const arrImages = [
 	{
 		image: '01.webp',
