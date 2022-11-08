@@ -107,23 +107,7 @@ document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
 document.body.style.backgroundSize = 'cover';
 
 // aggiungere gli event listeners ai due bottoni
-eleBtnRight.addEventListener('click', function () {
-	// togliere la classe active dall'elemento attivo corrente
-	listEleImg[activeIndex].classList.remove('active');
-	listThumbs[activeIndex].classList.remove('active');
-
-	// incrementare l'active index con reset per slider infinito
-	activeIndex++;
-	if (activeIndex === listEleImg.length) {
-		activeIndex = 0;
-	}
-
-	// aggiungere la classe active all'elemento successivo
-	listEleImg[activeIndex].classList.add('active');
-	listThumbs[activeIndex].classList.add('active');
-	document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
-	document.body.style.backgroundSize = 'cover';
-});
+eleBtnRight.addEventListener('click', right );
 
 eleBtnLeft.addEventListener('click', function () {
 	// togliere la classe active dall'elemento attivo corrente
@@ -143,3 +127,57 @@ eleBtnLeft.addEventListener('click', function () {
 	document.body.style.backgroundSize = 'cover';
 });
 
+
+const eleBtnStart = document.querySelector('.btn-start');
+const eleBtnStop = document.querySelector('.btn-stop');
+const eleBtninvert = document.querySelector('.btn-invert');
+let idInterval;
+let i = 0;
+
+eleBtnStart.addEventListener('click', function() {
+	idInterval = setInterval(right, 3000);
+});
+
+eleBtnStop.addEventListener('click', function() {
+	clearInterval(idInterval);
+})
+
+eleBtninvert.addEventListener('click', function() {
+	clearInterval(idInterval);
+	idInterval = setInterval(left, 3000)	
+})
+
+function right () {
+	// togliere la classe active dall'elemento attivo corrente
+	listEleImg[activeIndex].classList.remove('active');
+	listThumbs[activeIndex].classList.remove('active');
+
+	// incrementare l'active index con reset per slider infinito
+	activeIndex++;
+	if (activeIndex === listEleImg.length) {
+		activeIndex = 0;
+	}
+
+	// aggiungere la classe active all'elemento successivo
+	listEleImg[activeIndex].classList.add('active');
+	listThumbs[activeIndex].classList.add('active');
+	document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
+	document.body.style.backgroundSize = 'cover';
+}
+function left() {
+	// togliere la classe active dall'elemento attivo corrente
+	listEleImg[activeIndex].classList.remove('active');
+	listThumbs[activeIndex].classList.remove('active');
+
+	// decrementare l'active index con reset per slider infinito
+	if (activeIndex === 0) {
+		activeIndex = listEleImg.length;
+	}
+	activeIndex--;
+
+	// aggiungere la classe active all'elemento successivo
+	listEleImg[activeIndex].classList.add('active');
+	listThumbs[activeIndex].classList.add('active');
+	document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
+	document.body.style.backgroundSize = 'cover';
+}
