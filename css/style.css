@@ -71,7 +71,12 @@ img{
 	object-fit: cover;
 	object-position: center;
 }
-
+.slider-text{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.384);
+}
 .slider .slider-img.active {
 	display: block;
 }
@@ -94,4 +99,7 @@ img{
 .slider .thumb-img.active {
 	border: 5px solid white;
 	filter: brightness(1);
+}
+h2, h4{
+text-align: center;
 }

@@ -79,10 +79,15 @@ for (let i = 0; i < arrImages.length; i++) {
 	const eleImg = document.createElement('div');
 	eleImg.innerHTML =`<img src="img/${arrImages[i].image}" alt="">`;
 	eleImg.classList.add('slider-img');
+	const eleImgTitle = document.createElement('div');
+	eleImgTitle.classList.add('slider-text')
+	eleImgTitle.innerHTML = `<h2>${arrImages[i].title}</h2>
+		<h4>${arrImages[i].text}</h4>`;
 	if (i === 0) {
 		eleImg.classList.add('active');
-	}
+	};
 	eleSliderViewer.append(eleImg);
+	eleImg.append(eleImgTitle);
 
 	// creare i tag immagine che vanno nella sezione .thumbs
 	const eleThumb = document.createElement('div');
