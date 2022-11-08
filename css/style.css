@@ -5,31 +5,40 @@
 }
 
 body {
-	display: flex;
 	height: 100vh;
 }
 
+.container-blur {
+	display: flex;
+	height: 100%;
+	backdrop-filter: blur(20px);
+}
+
 .slider {
-	position: relative;
 	margin: auto;
 	height: 80%;
 	width: 60%;
 	max-width: 600px;
-	max-height: 400px;
+	max-height: 500px;
 	background-color: salmon;
 }
 
-.controls {
-	display: flex;
-    flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
+.slider .slider-viewer {
+	position: relative;
+	height: 80%;
+}
+
+.slider .controls {
 	position: absolute;
 	inset: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100%;
 	z-index: 10;
 }
 
-.btn-up, .btn-down {
+.btn-left, .btn-right {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -40,12 +49,20 @@ body {
 	background-color: white;
 }
 
-.btn-up:hover, .btn-down:hover {
+.btn-left:hover, .btn-right:hover {
 	background-color: lightblue;
 	cursor: pointer;
 }
 
-.slider-img {
+.hidden {
+	visibility: hidden;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+
+.slider .slider-img {
 	position: absolute;
 	inset: 0;
 	display: none;
@@ -55,10 +72,26 @@ body {
 	object-position: center;
 }
 
-.active {
+.slider .slider-img.active {
 	display: block;
 }
 
-.hidden {
-	visibility: hidden;
+.slider .thumbs {
+	position: relative;
+	display: flex;
+	height: 20%;
+}
+
+.slider .thumb-img {
+	flex: 1 0 0;
+	min-width: 0;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	filter: brightness(.4);
+}
+
+.slider .thumb-img.active {
+	border: 5px solid white;
+	filter: brightness(1);
 }
