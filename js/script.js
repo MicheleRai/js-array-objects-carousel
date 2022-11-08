@@ -107,25 +107,9 @@ document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
 document.body.style.backgroundSize = 'cover';
 
 // aggiungere gli event listeners ai due bottoni
-eleBtnRight.addEventListener('click', right );
+eleBtnRight.addEventListener('click', rightFunction );
 
-eleBtnLeft.addEventListener('click', function () {
-	// togliere la classe active dall'elemento attivo corrente
-	listEleImg[activeIndex].classList.remove('active');
-	listThumbs[activeIndex].classList.remove('active');
-
-	// decrementare l'active index con reset per slider infinito
-	if (activeIndex === 0) {
-		activeIndex = listEleImg.length;
-	}
-	activeIndex--;
-
-	// aggiungere la classe active all'elemento successivo
-	listEleImg[activeIndex].classList.add('active');
-	listThumbs[activeIndex].classList.add('active');
-	document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
-	document.body.style.backgroundSize = 'cover';
-});
+eleBtnLeft.addEventListener('click', leftFunction);
 
 
 const eleBtnStart = document.querySelector('.btn-start');
@@ -135,7 +119,7 @@ let idInterval;
 let i = 0;
 
 eleBtnStart.addEventListener('click', function() {
-	idInterval = setInterval(right, 3000);
+	idInterval = setInterval(rightFunction, 3000);
 });
 
 eleBtnStop.addEventListener('click', function() {
@@ -144,10 +128,10 @@ eleBtnStop.addEventListener('click', function() {
 
 eleBtninvert.addEventListener('click', function() {
 	clearInterval(idInterval);
-	idInterval = setInterval(left, 3000)	
+	idInterval = setInterval(leftFunction, 3000)	
 })
 
-function right () {
+function rightFunction () {
 	// togliere la classe active dall'elemento attivo corrente
 	listEleImg[activeIndex].classList.remove('active');
 	listThumbs[activeIndex].classList.remove('active');
@@ -164,7 +148,7 @@ function right () {
 	document.body.style.backgroundImage = `url('${arrImages[activeIndex]}')`;
 	document.body.style.backgroundSize = 'cover';
 }
-function left() {
+function leftFunction() {
 	// togliere la classe active dall'elemento attivo corrente
 	listEleImg[activeIndex].classList.remove('active');
 	listThumbs[activeIndex].classList.remove('active');
