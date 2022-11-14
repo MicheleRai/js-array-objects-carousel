@@ -67,6 +67,7 @@ const eleSliderViewer = document.querySelector('.slider-viewer');
 const eleSliderThumbs = document.querySelector('.thumbs');
 const eleBtnLeft = document.querySelector('.btn-left');
 const eleBtnRight = document.querySelector('.btn-right');
+const blurImg = document.querySelector('.container-blur');
 
 // creare i tag immagine nell'html
 for (let i = 0; i < arrImages.length; i++) {
@@ -76,8 +77,9 @@ for (let i = 0; i < arrImages.length; i++) {
 	eleImg.classList.add('slider-img');
 	const eleImgTitle = document.createElement('div');
 	eleImgTitle.classList.add('slider-text')
-	eleImgTitle.innerHTML = `<h2>${arrImages[i].title}</h2>
-		<h4>${arrImages[i].text}</h4>`;
+	eleImgTitle.innerHTML = `<h2>${arrImages[i].title}</h2> <h4>${arrImages[i].text}</h4>`;
+	document.querySelector(".container-blur").style.background = "url(`img/${arrImages[i].image}`) center";  //???
+	//document.blurImg.style.background = `url('${arrImages[i].image}') no-repeat center`;
 	if (i === 0) {
 		eleImg.classList.add('active');
 	};
